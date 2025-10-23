@@ -1,0 +1,20 @@
+// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © dohaweb
+
+//@version=6
+indicator("Collaborative Template Indicator (MPL 2.0)", shorttitle="CTI", overlay=true)
+
+// --- CONFIGURATION & INPUTS ---
+// Example input for user settings
+var color mainColor = input.color(color.blue, "Plot Color")
+var int maLength = input.int(20, "Moving Average Length", minval=1)
+
+// --- CORE LOGIC ---
+// Placeholder: Calculation for a Simple Moving Average (SMA)
+float maValue = ta.sma(close, maLength)
+
+// --- OUTPUT ---
+plot(maValue, color=mainColor, title="MA Value")
+
+// Simple visualization to confirm basic functionality
+plotshape(ta.change(close) > 0 ? high : na, style=shape.circle, location=location.abovebar, color=color.green, size=size.tiny)
